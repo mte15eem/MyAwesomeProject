@@ -6,21 +6,14 @@ export default class CropsView {
         this.onCropEdit = onCropEdit;
         this.onCloseModal = onCloseModal;
         this.onCropDelete = onCropDelete;
-        this.root.innerHTML = `        
+        this.root.innerHTML = `
+        <div class="page_header">Odlarns planeringsverktyg</div>
         <div class = "crops_sidebar">
-            <button class="crops_add" type="button">Add Crop</button>
+            <button class="crops_add" type="button">Lägg till ny gröda</button>
             <div class="crops_list"></div>
         </div>
-        <div class = "crops_preview">
-            <!-- <input class="crops_swedish_name" type="text" placeholder="Ange grödans svenska namn">
-            <input class="crops_latin_name" type="text" placeholder="Ange grödans LATINSKA namn">
-            <input class="sowing_time" type="text" placeholder="Såtid: ">
-            <input class="precultivation" type="text" placeholder="Förkultiveras: Ja/Nej">
-            <input class="sprouting_time" type="text" placeholder="Grotid (dagar): ">
-            <input class="harvest_time" type="text" placeholder="Skördas: "> -->
-        </div>
 
-        <!-- The Modal -->
+        <!-- Crop Modal -->
         <div id="myModal" class="crop_modal">
 
         <!-- Modal content -->
@@ -63,8 +56,6 @@ export default class CropsView {
             });
         });
 
-        //Hide Crop Preview as default
-        this.updateCropPreviewVisibility(false);
 
     }
 
@@ -100,25 +91,26 @@ export default class CropsView {
             cropListItem.addEventListener("click", () => {
                 this.onCropSelect(cropListItem.dataset.cropId); //cropId kommer från html data-crop-id
 
-                //open modal!
+                //Open crop modal
                 var modal = document.getElementById("myModal");
                 modal.style.display = "block";
 
-                //close modal!
-                // Get the <span> element that closes the modal
                 var span = document.getElementsByClassName("modal_close")[0];
 
+                //Close modal
                 span.onclick = function () {
                     modal.style.display = "none";
                 }
 
+                //Save changes
                 let btn = document.getElementById("modalSave");
                 btn.addEventListener('click', event => {
                     this.onCloseModal();
                     modal.style.display = "none";
-                }); //kunde ej kalla på onCloseModal med onClick(). Måste vara EventListener. Vrf?
+                });
             });
 
+            //Delete crop on right click
             cropListItem.addEventListener("contextmenu", () => {
                 const doDelete = confirm("Vill du ta bort denna gröda?");
 
@@ -129,9 +121,6 @@ export default class CropsView {
         });
     }
 
-    _updateCropInformationVisibility() {
-
-    }
 
     _updateActiveCrop(crop) {
         this.root.querySelector(".crops_swedish_name").value = crop.swedishName;
@@ -148,9 +137,6 @@ export default class CropsView {
         this.root.querySelector(`.crops_list_item[data-crop-id="${crop.id}"]`).classList.add("crops_list_item_selected");
     }
 
-    updateCropPreviewVisibility(visible) {
-        this.root.querySelector(".crops_preview").style.visibility = visible ? "visible" : "hidden";
-    }
 
 
 }

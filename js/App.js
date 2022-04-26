@@ -2,7 +2,7 @@ import CropsView from "./CropsView.js";
 import CropsAPI from "./CropsAPI.js";
 
 export default class App {
-    constructor (root) {
+    constructor(root) {
         this.crops = [];
         this.activeCrop = null;
         this.view = new CropsView(root, this._handlers());
@@ -19,18 +19,14 @@ export default class App {
             this._setActiveCrop(crops[0]);
         }
 
-        // if (crops.length > 0 && this.activeCrop) {
-        //     this._setActiveCrop(this.activeCrop);
-        // }
     }
 
-    _setCrops (crops) {
+    _setCrops(crops) {
         this.crops = crops;
         this.view._updateCropList(crops);
-        this.view.updateCropPreviewVisibility(crops.length > 0);
     }
 
-    _setActiveCrop (crop) {
+    _setActiveCrop(crop) {
         this.activeCrop = crop;
         this.view._updateActiveCrop(crop);
     }
@@ -38,11 +34,8 @@ export default class App {
     _handlers() {
         return {
             onCropSelect: cropId => {
-                //console.log("Vald gröda: " + cropId);
                 const selectedCrop = this.crops.find(crop => crop.id == cropId);
                 this._setActiveCrop(selectedCrop);
-                //Activate pop-up window here
-                //var modal = document.getElementById("myModal");
             },
 
             onCropAdd: () => {
@@ -56,12 +49,10 @@ export default class App {
                 };
 
                 CropsAPI.saveCrop(newCrop);
-                //this._refreshCrops(newCrop);
                 this._refreshCrops();
             },
 
             onCropEdit: (newSweName, newLatName, newSowing, newPrecult, newSprout, newHarvest) => {
-                //console.log(newSweName, newLatName);
                 CropsAPI.saveCrop({
                     id: this.activeCrop.id,
                     swedishName: newSweName,
@@ -72,7 +63,6 @@ export default class App {
                     harvest: newHarvest,
                 });
 
-                //this._refreshCrops();
             },
 
             onCloseModal: () => {
@@ -82,7 +72,6 @@ export default class App {
             onCropDelete: cropId => {
                 console.log("Deleted crop: " + cropId);
                 CropsAPI.deleteCrop(cropId);
-                //this._refreshCrops(this.activeCrop);
                 this._refreshCrops();
             },
 
