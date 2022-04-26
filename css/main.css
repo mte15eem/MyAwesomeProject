@@ -1,0 +1,154 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.crop_planner {
+    display: flex;
+    height: 100%;
+}
+
+.crop_planner * {
+    font-family: sans-serif;
+}
+
+.page_header {
+    background: #62c393;
+    width: 100%;
+    height: 20px;
+    font-size: 1.25em;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+}
+
+.crops_add {
+    background: #009578;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 0.75em 0;
+    width: 100%;
+}
+
+
+.crops_sidebar {
+    border-right: 2px solid #dddddd;
+    flex-shrink: 0;
+    overflow-y: auto;
+    padding: 1em;
+    width: 300px;
+    margin-top: 100px;
+}
+
+.crops_add:hover {
+    background: #00af8c;
+}
+
+.crops_list_item {
+    padding: 1em;
+    width: 100%;
+    border-radius: 7px;
+    background: #fffefe;
+}
+
+.crops_list_item:hover {
+    background: #eeeeee;
+}
+
+.crops_list_item_selected {
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.crops_small_swedish_name,
+
+.crops_small_swedish_name {
+    font-size: 1.2em;
+}
+
+.crops_small_latin_name {
+    padding: 0 10px;
+    font-style: italic;
+}
+
+.crop_modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+
+  .modal_content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+  .modal_close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .modal_close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal_save_changes {
+    color: #8eb97c;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .modal_save_changes:hover {
+    color: #698d5a;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+.crops_preview {
+    display: flex;
+    flex-direction: column;
+    padding: 2em 3em;
+    flex-grow: 1;
+}
+
+.crops_swedish_name,
+.crops_latin_name {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.crops_swedish_name {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.crops_latin_name {
+    flex-grow: 1;
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-top: 2em;
+    resize: none;
+}
