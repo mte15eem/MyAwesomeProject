@@ -40,7 +40,7 @@ export default class App {
 
             onCropAdd: () => {
                 const newCrop = {
-                    swedishName: "Grödans svenska namn",
+                    swedishName: "Svenskt namn",
                     latinName: "Latinskt namn",
                     sowingTime: "Såtid: ",
                     precultivation: "Förkultiveras: Ja/Nej?",

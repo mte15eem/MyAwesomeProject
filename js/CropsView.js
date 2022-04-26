@@ -7,9 +7,9 @@ export default class CropsView {
         this.onCloseModal = onCloseModal;
         this.onCropDelete = onCropDelete;
         this.root.innerHTML = `
-        <div class="page_header">Odlarns planeringsverktyg</div>
+        <div class="page_header">Odlarn</div>
         <div class = "crops_sidebar">
-            <button class="crops_add" type="button">Lägg till ny gröda</button>
+            <button class="crops_add" type="button">Ny gröda</button>
             <div class="crops_list"></div>
         </div>
 
@@ -19,8 +19,8 @@ export default class CropsView {
         <!-- Modal content -->
         <div class="modal_content">
             <span class="modal_close">&times;</span>
-            <input class="crops_swedish_name" type="text" placeholder="Ange grödans svenska namn">
-            <input class="crops_latin_name" type="text" placeholder="Ange grödans LATINSKA namn">
+            <input class="crops_swedish_name" type="text">
+            <input class="crops_latin_name" type="text">
             <input class="sowing_time" type="text" placeholder="Såtid: ">
             <input class="precultivation" type="text" placeholder="Förkultiveras: Ja/Nej">
             <input class="sprouting_time" type="text" placeholder="Grotid (dagar): ">
